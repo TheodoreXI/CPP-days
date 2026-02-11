@@ -45,7 +45,7 @@ int	ScalarConverter::parsing(std::string &type)
 			check = 1;
 			if ((type[i] != '-' && type[i] != 'f' && type[i] != '.') || (type[i] == 'f' && (i+1) != type.length()) || (type[i] == '-' && i != 0))
 				return (0);
-			if (type[i] == '.')
+			if ( type[i] == '.')
 			{
 				count_point++;
 			}
