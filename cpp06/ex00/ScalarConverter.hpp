@@ -7,13 +7,14 @@
 
 class ScalarConverter
 {
-	public:
-		static void	convert(std::string &type);
-		static int			parsing(std::string &type);
+	private:
 		ScalarConverter(void);
 		~ScalarConverter(void);
 		ScalarConverter(const ScalarConverter &obj);
 		ScalarConverter &operator=(const ScalarConverter &obj);
+	public:
+		static void	convert(std::string &type);
+		static int			parsing(std::string &type);
 		
 };
 

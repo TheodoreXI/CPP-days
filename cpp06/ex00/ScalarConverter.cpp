@@ -49,7 +49,7 @@ int	ScalarConverter::parsing(std::string &type)
 			{
 				count_point++;
 			}
-			if (count_point > 1)
+			if (count_point > 1 || (count_point && (i+1) == type.length()))
 			{
 				return (0);
 			}
@@ -94,9 +94,13 @@ void	ScalarConverter::convert(std::string &type)
 				a = static_cast<int>(c);
 				f = static_cast<float>(c);
 				d = static_cast<double>(c);
-				if (a <= 31 || a >= 127)
+				if ((a >= 0 && a <= 31) || a == 127)
 				{
 					std::cout << "char: " << "Non displayable" << "\n";
+				}
+				else if (a > 127 || a < 0)
+				{
+					std::cout << "char: " << "Impossible" << "\n";
 				}
 				else
 				{
@@ -111,12 +115,24 @@ void	ScalarConverter::convert(std::string &type)
 			{
 				std::stringstream s(type.c_str());
 				s >> a;
+				if ((a == 2147483647 && type != "2147483647") || (a == -2147483648 && type != "-2147483648"))
+				{
+					std::cout << "char: " << "impossible" << "\n";
+					std::cout << "int: " << "impossible" << "\n";
+					std::cout << "float: " << "impossible" << "\n";
+					std::cout << "double: " << "impossible" << "\n";
+					break ;
+				}
 				c = static_cast<char>(a);
 				f = static_cast<float>(a);
 				d = static_cast<double>(a);
-				if (a <= 31 || a >= 127)
+				if ((a >= 0 && a <= 31) || a == 127)
 				{
 					std::cout << "char: " << "Non displayable" << "\n";
+				}
+				else if (a > 127 || a < 0)
+				{
+					std::cout << "char: " << "Impossible" << "\n";
 				}
 				else
 				{
@@ -131,12 +147,24 @@ void	ScalarConverter::convert(std::string &type)
 			{
 				std::stringstream s(type.c_str());
 				s >> d;
+				if ((a == 2147483647 && type != "2147483647") || (a == -2147483648 && type != "-2147483648"))
+				{
+					std::cout << "char: " << "impossible" << "\n";
+					std::cout << "int: " << "impossible" << "\n";
+					std::cout << "float: " << "impossible" << "\n";
+					std::cout << "double: " << "impossible" << "\n";
+					break ;
+				}
 				a = static_cast<int>(d);
 				c = static_cast<char>(d);
 				f = static_cast<float>(d);
-				if (a <= 31 || a >= 127)
+				if ((a >= 0 && a <= 31) || a == 127)
 				{
 					std::cout << "char: " << "Non displayable" << "\n";
+				}
+				else if (a > 127 || a < 0)
+				{
+					std::cout << "char: " << "Impossible" << "\n";
 				}
 				else
 				{
@@ -151,12 +179,24 @@ void	ScalarConverter::convert(std::string &type)
 			{
 				std::stringstream s(type.c_str());
 				s >> f;
+				if ((a == 2147483647 && type != "2147483647") || (a == -2147483648 && type != "-2147483648"))
+				{
+					std::cout << "char: " << "impossible" << "\n";
+					std::cout << "int: " << "impossible" << "\n";
+					std::cout << "float: " << "impossible" << "\n";
+					std::cout << "double: " << "impossible" << "\n";
+					break ;
+				}
 				a = static_cast<int>(f);
 				c = static_cast<char>(f);
 				d = static_cast<double>(f);
-				if (a <= 31 || a >= 127)
+				if ((a >= 0 && a <= 31) || a == 127)
 				{
 					std::cout << "char: " << "Non displayable" << "\n";
+				}
+				else if (a > 127 || a < 0)
+				{
+					std::cout << "char: " << "Impossible" << "\n";
 				}
 				else
 				{
@@ -193,7 +233,7 @@ void	ScalarConverter::convert(std::string &type)
 			}
 			default:
 			{
-				std::cout << "it entere default\n";
+				std::cout << "it entere default\n"; //must be checked before push
 				break;
 			}
 		}
