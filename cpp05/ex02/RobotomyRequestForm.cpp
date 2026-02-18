@@ -26,6 +26,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj)
 {
 	this->target = obj.target;
+	this->setS(obj.getS());
 	std::cout << "RobotomyRequestForm copy assignement operator.\n";
 	return (*this);
 

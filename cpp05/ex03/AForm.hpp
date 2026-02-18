@@ -21,6 +21,7 @@ class AForm
 		AForm &operator=(const AForm &obj);
 		std::string			getName(void) const;
 		bool				getS(void) const;
+		void				setS(bool k);
 		int					getGrade_sign() const;
 		int					getGrade_exec() const;
 		void				beSigned(Bureaucrat &b);

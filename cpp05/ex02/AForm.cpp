@@ -77,8 +77,23 @@ void	AForm::execute(Bureaucrat const & executor) const
 	}
 }
 
+const char *AForm::GradeTooHighException::what() const throw()
+{
+	return "Grade too high.";
+}
+
+const char *AForm::GradeTooLowException::what() const throw()
+{
+	return "Grade too low.";
+}
+
 std::ostream	&operator<<(std::ostream &os, const AForm &obj)
 {
 	os << obj.getName() << ", form sign is  " << obj.getGrade_sign() << " and execution grade " << obj.getGrade_exec() << ", this is the boolean sign " << obj.getS() << ".\n";
 	return (os);
+}
+
+void	AForm::setS(bool k)
+{
+	this->s = k;
 }

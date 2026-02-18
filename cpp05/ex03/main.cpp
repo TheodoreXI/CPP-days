@@ -3,14 +3,9 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
-void f()
-{
-	system("leaks -c Bureaucrat");
-}
 
 int main()
 {
-	// atexit(f);
 	AForm* form;
 	try
 	{

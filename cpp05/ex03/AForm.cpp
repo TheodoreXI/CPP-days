@@ -92,3 +92,8 @@ const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade too low.";
 }
+
+void	AForm::setS(bool k)
+{
+	this->s = k;
+}

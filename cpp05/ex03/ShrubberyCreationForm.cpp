@@ -27,6 +27,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	std::cout << "ShrubberyCreationForm copy assignement operator.\n";
 	this->target = obj.target;
+	this->setS(obj.getS());
 	return (*this);
 
 }

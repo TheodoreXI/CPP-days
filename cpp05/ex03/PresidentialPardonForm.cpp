@@ -26,6 +26,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj)
 {
 	this->target = obj.target;
+	this->setS(obj.getS());
 	std::cout << "PresidentialPardonForm copy assignement operator.\n";
 	return (*this);
 
