@@ -7,20 +7,22 @@ int main()
 {
 	try
 	{
-		Bureaucrat				j(86, "Jeff");
-		ShrubberyCreationForm	A("target");
-		RobotomyRequestForm  	B("target");
+		Bureaucrat				k(86, "Jeff");
 		PresidentialPardonForm	C("target");
-		std::cout << j;
-		std::cout << A;
-		std::cout << B;
-		std::cout << C;
-		j.signForm(A);
-		j.executeForm(A);
-		j.signForm(B);
-		j.executeForm(B);
-		j.signForm(C);
-		j.executeForm(C);
+		// Bureaucrat				j(86, "Jeff");
+		// ShrubberyCreationForm	A("target");
+		// RobotomyRequestForm  	B("target");
+		// PresidentialPardonForm	C("target");
+		// std::cout << j;
+		// std::cout << A;
+		// std::cout << B;
+		// std::cout << C;
+		// j.signForm(A);
+		// j.executeForm(A);
+		// j.signForm(B);
+		// j.executeForm(B);
+		// j.signForm(C);
+		// j.executeForm(C);
 
 		// std::cout << B.getGrade() << "\n";
 	/* do some stuff with bureaucrats */

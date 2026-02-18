@@ -41,3 +41,16 @@ void	PresidentialPardonForm::executeAction(void) const
 {
 	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox.\n";
 }
+
+
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getS() == 1 && executor.getGrade() <= this->getGrade_exec())
+	{
+		executeAction();
+	}
+	else
+	{
+		throw(AForm::GradeTooLowException());
+	}
+}
