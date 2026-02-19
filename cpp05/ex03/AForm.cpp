@@ -65,18 +65,6 @@ void	AForm::beSigned(Bureaucrat &b)
 		throw(AForm::GradeTooLowException());
 }
 
-void	AForm::execute(Bureaucrat const & executor) const
-{
-	if (this->s == 1 && executor.getGrade() <= this->grade_execute)
-	{
-		executeAction();
-	}
-	else
-	{
-		throw(AForm::GradeTooLowException());
-	}
-}
-
 std::ostream	&operator<<(std::ostream &os, const AForm &obj)
 {
 	os << obj.getName() << ", form sign is  " << obj.getGrade_sign() << " and execution grade " << obj.getGrade_exec() << ", this is the boolean sign " << obj.getS() << ".\n";

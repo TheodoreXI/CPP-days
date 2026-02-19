@@ -59,3 +59,15 @@ std::string	ShrubberyCreationForm::getTarget(void)
 {
 	return (target);
 }
+
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getS() == 1 && executor.getGrade() <= this->getGrade_exec())
+	{
+		executeAction();
+	}
+	else
+	{
+		throw(AForm::GradeTooLowException());
+	}
+}
