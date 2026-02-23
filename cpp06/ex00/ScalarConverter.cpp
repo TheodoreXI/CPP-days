@@ -30,7 +30,7 @@ int	ScalarConverter::parsing(std::string &type)
 	count_point = 0;
 	if (type.length() < 1)
 		return (0);
-	if (type.length() == 1 && std::isalpha(type[0]))
+	if (type.length() == 1 && !std::isdigit(type[0]))
 	{
 		return (1);
 	}
@@ -42,22 +42,25 @@ int	ScalarConverter::parsing(std::string &type)
 	{
 		if (!std::isdigit(type[i]))
 		{
-			check = 1;
-			if ((type[i] != '-' && type[i] != 'f' && type[i] != '.') || (type[i] == 'f' && (i+1) != type.length()) || (type[i] == '-' && i != 0))
+			if (i == 0 && type[i] != '-')
 				return (0);
-			if ( type[i] == '.')
+			if (type[i] == '-' && ((i+1) == type.length() || !std::isdigit(type[i+1])))
+			{
+				return (0);
+			}
+			if (type[i] == '.')
 			{
 				count_point++;
 			}
-			if (count_point > 1 || (count_point && (i+1) == type.length()))
+			else if ((!std::isdigit(type[i-1]) || (i+1) != type.length()) && type[i] == 'f')
 			{
 				return (0);
 			}
-			if (type[i] == '-' && (i+1) != type.length())
-				check = 0;
 		}
 	}
-	if (!check)
+	if (count_point > 1)
+		return (0);
+	if (!count_point)
 		return (2);
 	if (count_point && type.find('f') == std::string::npos)
 		return (3);
@@ -142,6 +145,7 @@ void	ScalarConverter::convert(std::string &type)
 		}
 		case 3:
 		{
+			std::cout << "hello\n";
 			std::stringstream s(type.c_str());
 			s >> d;
 			a = static_cast<int>(d);
