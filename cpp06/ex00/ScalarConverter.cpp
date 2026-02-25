@@ -23,10 +23,8 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj)
 
 int	parsing(std::string &type)
 {
-	int	check;
 	int	count_point;
 
-	check = 0;
 	count_point = 0;
 	if (type.length() < 1)
 		return (0);
