@@ -21,7 +21,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj)
 	return (*this);
 }
 
-int	ScalarConverter::parsing(std::string &type)
+int	parsing(std::string &type)
 {
 	int	check;
 	int	count_point;
@@ -86,7 +86,7 @@ void	ScalarConverter::convert(std::string &type)
 		endf = ".0f";
 		end = ".0";
 	}
-	switch(ScalarConverter::parsing(type))
+	switch(parsing(type))
 	{
 		case 1:
 		{
@@ -123,6 +123,18 @@ void	ScalarConverter::convert(std::string &type)
 				std::cout << "double: " << "impossible" << "\n";
 				break ;
 			}
+			if ((a >= 0 && a <= 31) || a == 127)
+			{
+				std::cout << "char: " << "Non displayable" << "\n";
+			}
+			else if (a > 127 || a < 0)
+			{
+				std::cout << "char: " << "Impossible" << "\n";
+			}
+			else
+			{
+				std::cout << "char: " << c << "\n";
+			}
 			c = static_cast<char>(a);
 			f = static_cast<float>(a);
 			d = static_cast<double>(a);
@@ -145,7 +157,6 @@ void	ScalarConverter::convert(std::string &type)
 		}
 		case 3:
 		{
-			std::cout << "hello\n";
 			std::stringstream s(type.c_str());
 			s >> d;
 			a = static_cast<int>(d);
